@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JUNAIZ_0019</title>
+    <title>junaiz</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
@@ -17,7 +17,7 @@
         body {
             font-family: 'Orbitron', sans-serif;
             background: linear-gradient(135deg, #1a1a2e, #16213e);
-            color: #e0e0e0;
+            color: #c6ced4;
             margin: 0;
             overflow-x: hidden;
             position: relative;
@@ -213,15 +213,66 @@
         .grid {
             margin-top: 2rem;
         }
+/* Style for the digital clock */
+        #digital-clock {
+            position: fixed;
+            top: 10px;
+            left: 10px; /* Position the clock on the left side */
+            background: rgba(0, 0, 0, 0.8);
+            color: lime;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            padding: 10px 20px;
+            border-radius: 8px;
+            z-index: 100;
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+        }
+        /* Style for the circular frames */
+        .circle-frame {
+            width: 11rem; /* 16x16 size */
+            height: 11rem;
+            border-radius: 50%; /* Makes it circular */
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #751f1f;
+            font-style: italic;
+            text-align: center;
+        }
+        /* Style for the square acrylic frames */
+        .square-frame {
+            width: 16rem; /* 16x16 size */
+            height: 16rem;
+            border-radius: 12px; /* Slightly rounded corners */
+            background: rgba(255, 255, 255, 0.1);
+            border: 8px solid rgba(255, 255, 255, 0.3); /* Thickness of 8mm */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Acrylic-like shadow */
+            overflow: hidden; /* Ensures the image stays within the frame */
+        }
+
+        .square-frame .photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures the image covers the frame without distortion */
+            border-radius: 8px; /* Matches the inner border radius of the frame */
+        }
     </style>
 </head>
 <body class="flex flex-col">
+<!-- Add the digital clock container -->
+    <div id="digital-clock"></div>
+
     <canvas id="digital-rain-canvas"></canvas>
     <canvas id="threejs-canvas"></canvas>
     <header>
         <div class="container mx-auto text-center px-4">
             <h1 class="text-3xl md:text-4xl font-bold neon-text">JUNAIZ</h1>
-            <p class="text-md md:text-lg mt-1">15-Year-Old. iam a studnt in al-hidaya kalamassery</p>
+            <p class="text-md md:text-lg mt-1">15-Year-Old. iam a student in al-hidaya kalamassery</p>
         </div>
     </header>
     <main>
@@ -237,9 +288,10 @@
                 <h2 class="text-4xl font-bold neon-text">About the Creator</h2>
                 <div class="max-w-3xl mx-auto card p-6 md:p-8 rounded-lg">
                     <p class="text-lg">
-                        Hey, I'm JUNAIZ, a 15-year-old visionary creating books that blend adventure, magic, and tech.
-                        My stories are portals to new worlds, built with imagination and a touch of cyber flair.
-                        When I'm not writing, I'm coding ideas or exploring the multiverse of books!
+                        Hey, I'm JUNAIZ, a 15-year-old.iam a student in al-hidaya kalamassery. 
+                        my place:kozhikode,feroke,petta,kodambuzha.iam a web developer.
+                        i like to read books like Novels,History.you can ask any doubt against my ai chatbot<br><br> 
+                        
                     </p>
                 </div>
             </div>
@@ -248,20 +300,33 @@
             <div class="container mx-auto text-center px-4">
                 <h2 class="text-4xl font-bold neon-text">My Photo Frames</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <div class="card p-6 rounded-lg flex flex-col">
-                        <div class="photo-frame mb-4"></div>
-                        <h3 class="text-xl font-semibold neon-text mt-4"><img src="image (8).jpg" alt=""> <source></h3>
-                        <p class="text-gray-300 mt-2 flex-grow"></p>
+                    <!-- Photo Frame 1 -->
+                    <div class="card p-6 rounded-lg flex flex-col items-center">
+                        <div class="square-frame mb-4">
+                            <img src="fgf.jpg" alt="Photo 1" class="photo">
+                        </div>
+                        <h3 class="text-xl font-semibold neon-text mt-4">Ghibli</h3>
                     </div>
-                    <div class="card p-6 rounded-lg flex flex-col">
-                        <div class="photo-frame mb-4"></div>
-                        <h3 class="text-xl font-semibold neon-text mt-4"><img src="" alt=""></h3>
-                        <p class="text-gray-300 mt-2 flex-grow">.</p>
+                    <!-- Photo Frame 2 -->
+                    <div class="card p-6 rounded-lg flex flex-col items-center">
+                        <div class="square-frame mb-4">
+                            <img src="jm.png" alt="Photo 2" class="photo">
+                        </div>
+                        <h3 class="text-xl font-semibold neon-text mt-4">Photo</h3>
                     </div>
-                    <div class="card p-6 rounded-lg flex flex-col">
-                        <div class="photo-frame mb-4"></div>
-                        <h3 class="text-xl font-semibold neon-text mt-4"></h3>
-                        <p class="text-gray-300 mt-2 flex-grow">.</p>
+                    <!-- Photo Frame 3 -->
+                    <div class="card p-6 rounded-lg flex flex-col items-center">
+                        <div class="square-frame mb-4">
+                            <img src="download (3).jpg" alt="Photo 3" class="photo">
+                        </div>
+                        <h3 class="text-xl font-semibold neon-text mt-4">liked bird</h3>
+                    </div>
+                    <!-- Photo Frame 4 -->
+                    <div class="card p-6 rounded-lg flex flex-col items-center">
+                        <div class="square-frame mb-4">
+                            <img src="images.jpg" alt="Photo 4" class="photo">
+                        </div>
+                        <h3 class="text-xl font-semibold neon-text mt-4">vehicle</h3>
                     </div>
                 </div>
             </div>
@@ -363,7 +428,7 @@ Introduction: Earth in Balance... (content omitted for brevity)
         function drawRain() {
             rainCtx.fillStyle = 'rgba(22, 33, 62, 0.05)';
             rainCtx.fillRect(0, 0, rainWidth, rainHeight);
-            rainCtx.fillStyle = '#00f6ff';
+            rainCtx.fillStyle = ' #00ff00';
             rainCtx.font = `${fontSize}px monospace`;
             for (let i = 0; i < drops.length; i++) {
                 const text = rainChars[Math.floor(Math.random() * rainChars.length)];
@@ -434,6 +499,19 @@ Introduction: Earth in Balance... (content omitted for brevity)
             if (renderer && camera) { camera.aspect = window.innerWidth / window.innerHeight; camera.updateProjectionMatrix(); renderer.setSize(window.innerWidth, window.innerHeight); }
         });
         // --- Modal Functions ---
+// Function to update the digital clock
+        function updateClock() {
+            const clockElement = document.getElementById('digital-clock');
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            clockElement.textContent = `${hours}:${minutes}:${seconds}`;
+        }
+
+        // Update the clock every second
+        setInterval(updateClock, 1000);
+        updateClock(); // Initialize the clock immediately
     </script>
     <script src='https://cdn.jotfor.ms/s/umd/latest/for-embedded-agent.js'></script>
 <script>
@@ -463,3 +541,4 @@ Introduction: Earth in Balance... (content omitted for brevity)
 </script>
 </body>
 </html>
+``` 
