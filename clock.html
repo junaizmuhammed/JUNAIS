@@ -325,27 +325,29 @@
         }
     </style>
 
-    <script>
-        // Function to update the digital clock
-        function updateClock() {
-            const clockElement = document.getElementById('digital-clock');
-            const now = new Date();
-            let hours = now.getHours();
-            const minutes = String(now.getMinutes()).padStart(2, '0');
-            const seconds = String(now.getSeconds()).padStart(2, '0');
-            const ampm = hours >= 12 ? 'PM' : 'AM'; // Determine AM or PM
+   <script>
+    function updateClock() {
+        const clockElement = document.getElementById('digital-clock');
+        const now = new Date();
+        
+        // Get time components
+        let hours = now.getHours();
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        const seconds = String(now.getSeconds()).padStart(2, '0');
+        
+        // Convert to 12-hour format
+        const ampm = hours >= 12 ? 'PM' : 'AM';
+        hours = hours % 12;
+        hours = hours || 12; // Convert 0 to 12
+        
+        // Display the time
+        clockElement.textContent = `${hours}:${minutes}:${seconds} ${ampm}`;
+    }
 
-            // Convert to 12-hour format
-            hours = hours % 12;
-            hours = hours ? hours : 12; // If hours is 0, set it to 12
-
-            clockElement.textContent = `${hours}:${minutes}:${seconds} ${ampm}`;
-        }
-
-        // Update the clock every second
-        setInterval(updateClock, 1000);
-        updateClock(); // Initialize the clock immediately
-    </script>
+    // Update immediately and then every second
+    updateClock();
+    setInterval(updateClock, 1000);
+</script>
 </body>
 </html><script src='https://cdn.jotfor.ms/s/umd/latest/for-embedded-agent.js'></script>
 <script>
