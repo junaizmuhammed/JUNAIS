@@ -503,10 +503,19 @@ Introduction: Earth in Balance... (content omitted for brevity)
         function updateClock() {
             const clockElement = document.getElementById('digital-clock');
             const now = new Date();
-            const hours = String(now.getHours()).padStart(2, '0');
+
+            // Get time components
+            let hours = now.getHours();
             const minutes = String(now.getMinutes()).padStart(2, '0');
             const seconds = String(now.getSeconds()).padStart(2, '0');
-            clockElement.textContent = `${hours}:${minutes}:${seconds}`;
+
+            // Convert to 12-hour format
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12;
+            hours = hours || 12; // Convert 0 to 12
+
+            // Display the time
+            clockElement.textContent = `${hours}:${minutes}:${seconds} ${ampm}`;
         }
 
         // Update the clock every second
@@ -541,4 +550,3 @@ Introduction: Earth in Balance... (content omitted for brevity)
 </script>
 </body>
 </html>
-``` 
